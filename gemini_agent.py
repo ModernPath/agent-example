@@ -31,7 +31,7 @@ from typing import Any, Dict, List, Optional, Tuple
 from google import genai
 from google.genai import types
 
-DEFAULT_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+DEFAULT_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
 MAX_TOOL_ROUNDS = 8
 
 # ---------------------------------------------------------------------------

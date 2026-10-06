@@ -95,7 +95,7 @@ python ui/app.py
 |----------|---------|
 | `GEMINI_API_KEY` / `GOOGLE_AI_STUDIO_KEY` | Enables LLM mode (otherwise offline) |
 | `EXAMPLE_AGENT_OFFLINE=1` | Force offline mode even when a key is set |
-| `EXAMPLE_AGENT_MODEL` | Override the model (default `gemini-3-flash-preview`) |
+| `EXAMPLE_AGENT_MODEL` | Override the model (default `gemini-3.8-flash`) |
 | `EXAMPLE_AGENT_DATA_DIR` | Store notes somewhere other than `memory/data/` |
 | `PORT` / `API_PORT` | UI / API port |
 | `FLASK_SECRET` | Set a private session secret before using the UI beyond disposable local development |

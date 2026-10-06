@@ -5,7 +5,7 @@ from __future__ import annotations
 import os
 from typing import Optional
 
-DEFAULT_MODEL = "gemini-3-flash-preview"
+DEFAULT_MODEL = "gemini-3.8-flash"
 API_KEY_VARS = ("GOOGLE_AI_STUDIO_KEY", "GEMINI_API_KEY", "GOOGLE_API_KEY")
 OFFLINE_ENV = "EXAMPLE_AGENT_OFFLINE"
 
