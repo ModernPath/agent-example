@@ -7,6 +7,10 @@ The [agent workflow](AGENTS.md) explains how to adapt and verify those parts.
 
 `gemini_agent.py` is a separate optional model-client example.
 
+[`signal-intelligence/`](https://github.com/ModernPath/signal-scout/tree/main/agents/signal-intelligence) is the standalone Phase 2 SignalScout
+agent, kept in the SignalScout repository. It uses the application's PostgreSQL database and
+application-owned migrations. See its README for setup, commands, and current acceptance gaps.
+
 ## Try the full example
 
 From the repository root:
