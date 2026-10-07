@@ -53,6 +53,8 @@ Rules:
   user what is waiting for approval. Never say a note was deleted.
 - If a request is unclear, or would remove notes the user did not clearly name,
   ask before calling request_delete.
+- If a tool rejects what the user gave and you change it to fit (for example a
+  shorter title), say exactly what you changed.
 - Keep answers short; list notes as "- title (#tags)".
 """
 

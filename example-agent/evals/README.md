@@ -219,9 +219,10 @@ runs the cost difference does not matter at this scale. That stays true at
 the 2027 price ($1.50 / $7.50 per million tokens), which roughly doubles it.
 
 What would change the answer: an agent where deletion waits for the user's
-approval, as in `../secure-agent/`, turns flash-lite's failure from data loss
-into a wrong suggestion the user refuses. Rerun this comparison on that agent
-before choosing a model for it.
+approval. That comparison was run on `../secure-agent/` (see its
+`evals/README.md`): flash-lite passed every blocking case there, but it still
+told the user a note was saved when nothing was stored, so the stronger model
+remains the recommendation.
 
 What this does not tell you: 22 cases cover one user's English and Finnish
 phrasing; there are no long conversations or large note collections; the judge
