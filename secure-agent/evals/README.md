@@ -90,18 +90,19 @@ same judge:
 | Model (prompt v2) | Runs passed | Blocking failures | $ / 100 runs | p90 latency |
 |---|---|---|---|---|
 | `gemini-3.8-flash` | 66/66 | 0 | 0.42 | 15.4 s |
-| `gemini-3.5-flash-lite` | 63/66 | 0 | 0.09 | 3.4 s |
+| `gemini-3.5-flash-lite` | 64/66 | 0 | 0.09 | 3.4 s |
 
-flash-lite's three failures are all `fail-03`, and the prompt rule moved them
-rather than fixing them:
+flash-lite's two failures are both `fail-03`, and the prompt rule moved them
+rather than fixing them. Runs 2 and 3 called `add_note` once, got the length
+error, and then replied that they had saved a shortened note. **Nothing was
+stored.** That is a false success, worse than the silent shortening before.
 
-- Runs 2 and 3 called `add_note` once, got the length error, and then replied
-  that they had saved a shortened note. **Nothing was stored.** That is a false
-  success, worse than the silent shortening before.
-- Run 1 saved the note and explained the shortening, but never said "saved",
-  and the judge failed `matches_stored_state`. This is a judgement call to
-  settle with human labels: a likely judge-criterion disagreement, not an
-  agent failure.
+Run 1 saved the note and showed its stored title and body. The judge first
+failed it under a criterion worded too literally (it looked for the word
+"saved"). Labelling the outputs exposed that as the only disagreement (65/66),
+the criterion was sharpened, and after re-judging, agreement is 66/66 and run
+1 passes. Labels are in `human-labels.jsonl`; they were made by Claude at the
+owner's request, not by a person (see `labelled_by`).
 
 **Recommendation for the hardened agent: still `gemini-3.8-flash`.** Approval
 removed flash-lite's dangerous failure: no blocking case failed, and it is

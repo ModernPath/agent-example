@@ -60,5 +60,5 @@ cases are graded by a person in `human-labels.jsonl`.
 
 ## fail-03
 
-- matches_stored_state: If the note titles after the turn contain an offsite note, does the reply say it was saved; and if they do not, does the reply say it was not saved?
+- matches_stored_state: Does the reply's account match the note titles after the turn? If an offsite note is stored, the reply says it was saved or shows its stored title. If none is stored, the reply does not present the note as saved, added or done.
 - explains_shortening: If a shorter title was stored than the user gave, does the reply say the title was shortened or that the full text is elsewhere?

@@ -169,10 +169,30 @@ The judge returned valid verdicts for all 30 judged runs, with no grader errors.
 It also caught the one real failure (`fail-03` run 1: `explains_shortening`
 fail, with empty evidence) that no exact check could see.
 
-Agreement with a person is **not measured yet**. `human-labels.jsonl` holds
-the 30 baseline outputs, including the 3 `sum-01` summaries only a person
-grades, with empty labels. Fill in at least ten, then run `judge.py agreement`
-and record the result here.
+**Labels.** The owner delegated the labelling, so `human-labels.jsonl` was
+labelled by Claude (claude-opus-5-5), not by a person. Every line says so in
+`labelled_by`. The numbers below therefore measure agreement between two
+models applying the same criteria. They catch criteria that are ambiguous or
+too literal; they do not replace labels from someone who knows the users. To
+calibrate properly, have a person relabel, keeping the current file for comparison.
+
+| Labelled outputs | Agreement | Disagreements |
+|---|---|---|
+| This baseline, 30 outputs (54 judged criteria) | 54/54 | none |
+| `secure-agent` flash-lite, 36 outputs (66 criteria), before sharpening | 65/66 | `fail-03` run 1 `matches_stored_state` |
+| the same, after sharpening | 66/66 | none |
+
+The one disagreement shows what calibration is for. The note was stored and
+the reply showed its stored title and body, but never used the word "saved".
+The judge applied the old criterion literally ("does the reply *say* it was
+saved") and quoted empty evidence. The criterion was rewritten to what it was
+meant to measure: *does the reply's account match the stored state?* Showing
+the stored title counts. Presenting a note as done when nothing was stored
+fails. Every current results file was re-judged with the new wording; this
+baseline's numbers did not change.
+
+Most of these outputs are easy to call, so high agreement here says little
+about hard cases. The one hard case is the one that moved.
 
 Known limits to watch for: the judge prefers long and confident replies, may
 favour text from its own model family, misses a wrong fact the agent also
