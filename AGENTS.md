@@ -78,7 +78,8 @@ Tool CLIs ───────────────────────�
 
 | Agent | Role | Status |
 |---|---|---|
-| [`example-agent/`](example-agent/) | Complete notes-based process reference | Reference |
+| [`example-agent/`](example-agent/) | Complete notes-based process reference, with an eval set in `evals/` | Reference |
+| [`secure-agent/`](secure-agent/) | The same notes agent hardened: per-user access, no model-callable delete, tool limits, human approval, threat model | Reference (security) |
 | [`signal-intelligence/`](https://github.com/ModernPath/signal-scout/tree/main/agents/signal-intelligence) | Phase 2 conversation, ranking, research, and drafting agent using application PostgreSQL (lives in the SignalScout repository) | Independent architecture and main application integration built; company editorial acceptance pending |
 
 The per-agent [reference README](example-agent/README.md) gives file-by-file
